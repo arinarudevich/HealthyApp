@@ -1,11 +1,3 @@
-//
-//  RecipeViewController.swift
-//  HealthyApp
-//
-//  Created by Aryna Rudzevich on 11/30/19.
-//  Copyright © 2019 Aryna Rudzevich. All rights reserved.
-//
-
 import UIKit
 import os.log
 
@@ -23,6 +15,7 @@ class RecipeViewController: UIViewController, UITextFieldDelegate,
     @IBOutlet weak var photoImageView: UIImageView!
     @IBOutlet weak var ratingControl: RatingControl!
     @IBOutlet weak var saveButton: UIBarButtonItem!
+    @IBOutlet weak var descriptionField: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,12 +34,16 @@ class RecipeViewController: UIViewController, UITextFieldDelegate,
         
         navigationController.navigationBar.barTintColor = UIColor(patternImage: flareGradientImage)
         
+        //Add shadow to description
+//        descriptionField.dropShadow()
+        
         // Set up views if editing an existing Recipe.
         if let recipe = recipe {
             navigationItem.title = recipe.name
             nameTextField.text   = recipe.name
             photoImageView.image = recipe.photo
             ratingControl.rating = recipe.rating
+            descriptionField.text = recipe.instruction
         }
         
         // Enable the Save button only if the text field has a valid name.
@@ -123,8 +120,9 @@ class RecipeViewController: UIViewController, UITextFieldDelegate,
         let name = nameTextField.text ?? ""
         let photo = photoImageView.image
         let rating = ratingControl.rating
+        let instruction = descriptionField.text ?? ""
         
-        recipe = Recipe(name: name, photo: photo, rating: rating)
+        recipe = Recipe(name: name, photo: photo, rating: rating, instruction: instruction)
     }
 
     //MARK: Actions

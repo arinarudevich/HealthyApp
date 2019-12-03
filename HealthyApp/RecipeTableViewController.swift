@@ -32,13 +32,15 @@ class RecipeTableViewController: UITableViewController {
         
         navigationController.navigationBar.barTintColor = UIColor(patternImage: flareGradientImage)
         
+        loadSampleRecipes()
+        
         // Load any saved recipes, otherwise load sample data.
-        if let savedRecipes = loadRecipes() {
-            recipes += savedRecipes
-        } else {
-            // Load the sample data.
-            loadSampleRecipes()
-        }
+//        if let savedRecipes = loadRecipes() {
+//            recipes += savedRecipes
+//        } else {
+//            // Load the sample data.
+//            loadSampleRecipes()
+//        }
     }
 
     // MARK: - Table view data source
@@ -68,6 +70,7 @@ class RecipeTableViewController: UITableViewController {
         cell.ratingControl.rating = recipe.rating
         cell.photoImageView.layer.cornerRadius = 20
         cell.photoImageView.clipsToBounds = true
+        
         return cell
     }
  
@@ -169,15 +172,15 @@ class RecipeTableViewController: UITableViewController {
         let photo2 = UIImage(named: "recipe2")
         let photo3 = UIImage(named: "recipe3")
         
-        guard let recipe1 = Recipe(name: "Caprese Salad", photo: photo1, rating: 0) else {
+        guard let recipe1 = Recipe(name: "Caprese Salad", photo: photo1, rating: 0, instruction: "Place the tomatoes and mozzarella on a platter. Arrange tomatoes and mozzarella on a platter in an alternating pattern.Top with the basil leaves.Season with flaky salt and black pepper. ...Drizzle with the olive oil and balsamic glaze.") else {
             fatalError("Unable to instantiate recipe1")
         }
         
-        guard let recipe2 = Recipe(name: "Chicken and Potatoes", photo: photo2, rating: 1) else {
+        guard let recipe2 = Recipe(name: "Chicken and Potatoes", photo: photo2, rating: 1, instruction: "Preheat oven to 200°C | 400°F. ...Combine together the butter, broth (or stock), garlic, parsley, thyme and rosemary together in a bowl.Place chicken on the baking sheet and arrange the potatoes allBake in preheated oven for 15 minutes or when potatoes just start to become golden.") else {
             fatalError("Unable to instantiate recipe2")
         }
         
-        guard let recipe3 = Recipe(name: "Pasta with Meatballs", photo: photo3, rating: 2) else {
+        guard let recipe3 = Recipe(name: "Pasta with Meatballs", photo: photo3, rating: 2, instruction: "Preheat oven to 425 degrees F.Place a large pot of water on to boil for spaghetti. Mix beef and Worcestershire, egg, bread crumbs, cheese, garlic, salt and pepper. Heat a deep skillet or medium pot over moderate heat. Toss hot, drained pasta with a few ladles of the sauce and grated cheese") else {
             fatalError("Unable to instantiate recipe3")
         }
         recipes = [recipe1, recipe2, recipe3]

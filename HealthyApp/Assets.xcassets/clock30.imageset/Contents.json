@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "30-minutes (3)-2.png",
+      "filename" : "30-minutes-2.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "30-minutes (3)-1.png",
+      "filename" : "30-minutes-1.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "30-minutes (3).png",
+      "filename" : "30-minutes.png",
       "scale" : "3x"
     }
   ],

@@ -58,7 +58,9 @@ import UIKit
         
         // Load Button Images
         let bundle = Bundle(for: type(of: self))
-        let clock = UIImage(named:"clock", in: bundle, compatibleWith: self.traitCollection)
+        let clock15 = UIImage(named:"clock15", in: bundle, compatibleWith: self.traitCollection)
+        let clock30 = UIImage(named:"clock30", in: bundle, compatibleWith: self.traitCollection)
+        let clock60 = UIImage(named:"clock60", in: bundle, compatibleWith: self.traitCollection)
         let clockGreen = UIImage(named: "clockGreen", in: bundle, compatibleWith: self.traitCollection)
         let clockYellow = UIImage(named:"clockYellow", in: bundle, compatibleWith: self.traitCollection)
         let clockRed = UIImage(named:"clockRed", in: bundle, compatibleWith: self.traitCollection)
@@ -67,25 +69,24 @@ import UIKit
             // Create the button
             let button = UIButton()
             
-            button.setImage(clock, for: .normal)
-            
             switch(index) {
             case 0:
+                button.setImage(clock15, for: .normal)
                 button.setImage(clockGreen, for: .selected)
                 button.setImage(clockGreen, for: .highlighted)
                 button.setImage(clockGreen, for: [.highlighted, .selected])
             case 1:
+                button.setImage(clock30, for: .normal)
                 button.setImage(clockYellow, for: .selected)
                 button.setImage(clockYellow, for: .highlighted)
                 button.setImage(clockYellow, for: [.highlighted, .selected])
             case 2:
+                button.setImage(clock60, for: .normal)
                 button.setImage(clockRed, for: .selected)
                 button.setImage(clockRed, for: .highlighted)
                 button.setImage(clockRed, for: [.highlighted, .selected])
             default:
-                button.setImage(clock, for: .selected)
-                button.setImage(clock, for: .highlighted)
-                button.setImage(clock, for: [.highlighted, .selected])
+                button.setImage(clock15, for: .normal)
             }
             
             // Add constraints
