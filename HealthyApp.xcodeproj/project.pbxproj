@@ -18,6 +18,7 @@
 		E19238C92392BC7A00EBEC8C /* RecipeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19238C82392BC7A00EBEC8C /* RecipeTableViewCell.swift */; };
 		E19238CD2392C34F00EBEC8C /* RecipeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19238CC2392C34F00EBEC8C /* RecipeTableViewController.swift */; };
 		E1B8E4002396866800492F7B /* UIView+Shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B8E3FF2396866800492F7B /* UIView+Shadow.swift */; };
+		E1CC02662396C574005B80EA /* UITextView+Placeholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CC02642396C3F4005B80EA /* UITextView+Placeholder.swift */; };
 		E1E34F9A23952CAF00C27865 /* CAGradientLayer+Custom.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E34F9923952CAF00C27865 /* CAGradientLayer+Custom.swift */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +38,7 @@
 		E19238C82392BC7A00EBEC8C /* RecipeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeTableViewCell.swift; sourceTree = "<group>"; };
 		E19238CC2392C34F00EBEC8C /* RecipeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeTableViewController.swift; sourceTree = "<group>"; };
 		E1B8E3FF2396866800492F7B /* UIView+Shadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Shadow.swift"; sourceTree = "<group>"; };
+		E1CC02642396C3F4005B80EA /* UITextView+Placeholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+Placeholder.swift"; sourceTree = "<group>"; };
 		E1E34F9923952CAF00C27865 /* CAGradientLayer+Custom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CAGradientLayer+Custom.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -101,6 +103,7 @@
 			isa = PBXGroup;
 			children = (
 				E1E34F9923952CAF00C27865 /* CAGradientLayer+Custom.swift */,
+				E1CC02642396C3F4005B80EA /* UITextView+Placeholder.swift */,
 				E1B8E3FF2396866800492F7B /* UIView+Shadow.swift */,
 			);
 			path = Extentions;
@@ -237,6 +240,7 @@
 				E19238CD2392C34F00EBEC8C /* RecipeTableViewController.swift in Sources */,
 				E19238B32392895100EBEC8C /* AppDelegate.swift in Sources */,
 				E19238C72392B97900EBEC8C /* Recipe.swift in Sources */,
+				E1CC02662396C574005B80EA /* UITextView+Placeholder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

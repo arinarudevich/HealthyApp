@@ -33,8 +33,8 @@ class RecipeTableViewController: UITableViewController {
         navigationController.navigationBar.barTintColor = UIColor(patternImage: flareGradientImage)
         
         loadSampleRecipes()
-        
-        // Load any saved recipes, otherwise load sample data.
+//        
+//        // Load any saved recipes, otherwise load sample data.
 //        if let savedRecipes = loadRecipes() {
 //            recipes += savedRecipes
 //        } else {
@@ -68,6 +68,8 @@ class RecipeTableViewController: UITableViewController {
         cell.nameLabel.text = recipe.name
         cell.photoImageView.image = recipe.photo
         cell.ratingControl.rating = recipe.rating
+        cell.instructionTextView.text = recipe.instruction
+        
         cell.photoImageView.layer.cornerRadius = 20
         cell.photoImageView.clipsToBounds = true
         

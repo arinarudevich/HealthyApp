@@ -34,9 +34,6 @@ class RecipeViewController: UIViewController, UITextFieldDelegate,
         
         navigationController.navigationBar.barTintColor = UIColor(patternImage: flareGradientImage)
         
-        //Add shadow to description
-//        descriptionField.dropShadow()
-        
         // Set up views if editing an existing Recipe.
         if let recipe = recipe {
             navigationItem.title = recipe.name
@@ -44,7 +41,12 @@ class RecipeViewController: UIViewController, UITextFieldDelegate,
             photoImageView.image = recipe.photo
             ratingControl.rating = recipe.rating
             descriptionField.text = recipe.instruction
+        } else {
+            //Add placeholder to instruction field if it's empty
+            descriptionField.placeholder = "Add instructions..."
         }
+        
+
         
         // Enable the Save button only if the text field has a valid name.
         updateSaveButtonState()
@@ -146,7 +148,8 @@ class RecipeViewController: UIViewController, UITextFieldDelegate,
     private func updateSaveButtonState() {
         // Disable the Save button if the text field is empty.
         let text = nameTextField.text ?? ""
-        saveButton.isEnabled = !text.isEmpty
+        let instruction = descriptionField.text ?? ""
+        saveButton.isEnabled = !text.isEmpty && !instruction.isEmpty
     }
 }
 
