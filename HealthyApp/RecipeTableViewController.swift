@@ -169,15 +169,15 @@ class RecipeTableViewController: UITableViewController {
         let photo2 = UIImage(named: "recipe2")
         let photo3 = UIImage(named: "recipe3")
         
-        guard let recipe1 = Recipe(name: "Caprese Salad", photo: photo1, rating: 4) else {
+        guard let recipe1 = Recipe(name: "Caprese Salad", photo: photo1, rating: 0) else {
             fatalError("Unable to instantiate recipe1")
         }
         
-        guard let recipe2 = Recipe(name: "Chicken and Potatoes", photo: photo2, rating: 5) else {
+        guard let recipe2 = Recipe(name: "Chicken and Potatoes", photo: photo2, rating: 1) else {
             fatalError("Unable to instantiate recipe2")
         }
         
-        guard let recipe3 = Recipe(name: "Pasta with Meatballs", photo: photo3, rating: 3) else {
+        guard let recipe3 = Recipe(name: "Pasta with Meatballs", photo: photo3, rating: 2) else {
             fatalError("Unable to instantiate recipe3")
         }
         recipes = [recipe1, recipe2, recipe3]

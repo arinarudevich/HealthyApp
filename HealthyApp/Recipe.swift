@@ -30,8 +30,8 @@ class Recipe: NSObject, NSCoding {
             return nil
         }
         
-        // The rating must be between 0 and 5 inclusively
-        guard (rating >= 0) && (rating <= 5) else {
+        // The rating must be between 0 and 2 inclusively
+        guard (rating >= 0) && (rating <= 2) else {
             return nil
         }
     

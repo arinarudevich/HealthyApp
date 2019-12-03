@@ -10,13 +10,13 @@ import UIKit
         }
     }
     
-    @IBInspectable var starSize: CGSize = CGSize(width: 44.0, height: 44.0) {
+    @IBInspectable var clockSize: CGSize = CGSize(width: 44.0, height: 44.0) {
         didSet {
             setupButtons()
         }
     }
     
-    @IBInspectable var starCount: Int = 5 {
+    @IBInspectable var clockCount: Int = 3 {
         didSet {
             setupButtons()
         }
@@ -40,15 +40,11 @@ import UIKit
         }
         
         // Calculate the rating of the selected button
-        let selectedRating = index + 1
+        let selectedRating = index
         
-        if selectedRating == rating {
-            // If the selected star represents the current rating, reset the rating to 0.
-            rating = 0
-        } else {
-            // Otherwise set the rating to the selected star
-            rating = selectedRating
-        }
+       print(index)
+        // Set the rating to the selected clock
+        rating = selectedRating
     }
     
     //MARK: Private Methods
@@ -62,22 +58,40 @@ import UIKit
         
         // Load Button Images
         let bundle = Bundle(for: type(of: self))
-        let filledStar = UIImage(named: "filledStar", in: bundle, compatibleWith: self.traitCollection)
-        let emptyStar = UIImage(named:"emptyStar", in: bundle, compatibleWith: self.traitCollection)
-        let highlightedStar = UIImage(named:"highlightedStar", in: bundle, compatibleWith: self.traitCollection)
+        let clock = UIImage(named:"clock", in: bundle, compatibleWith: self.traitCollection)
+        let clockGreen = UIImage(named: "clockGreen", in: bundle, compatibleWith: self.traitCollection)
+        let clockYellow = UIImage(named:"clockYellow", in: bundle, compatibleWith: self.traitCollection)
+        let clockRed = UIImage(named:"clockRed", in: bundle, compatibleWith: self.traitCollection)
         
-        for _ in 0..<starCount {
+        for (index) in 0..<clockCount {
             // Create the button
             let button = UIButton()
-            button.setImage(emptyStar, for: .normal)
-            button.setImage(filledStar, for: .selected)
-            button.setImage(highlightedStar, for: .highlighted)
-            button.setImage(highlightedStar, for: [.highlighted, .selected])
+            
+            button.setImage(clock, for: .normal)
+            
+            switch(index) {
+            case 0:
+                button.setImage(clockGreen, for: .selected)
+                button.setImage(clockGreen, for: .highlighted)
+                button.setImage(clockGreen, for: [.highlighted, .selected])
+            case 1:
+                button.setImage(clockYellow, for: .selected)
+                button.setImage(clockYellow, for: .highlighted)
+                button.setImage(clockYellow, for: [.highlighted, .selected])
+            case 2:
+                button.setImage(clockRed, for: .selected)
+                button.setImage(clockRed, for: .highlighted)
+                button.setImage(clockRed, for: [.highlighted, .selected])
+            default:
+                button.setImage(clock, for: .selected)
+                button.setImage(clock, for: .highlighted)
+                button.setImage(clock, for: [.highlighted, .selected])
+            }
             
             // Add constraints
             button.translatesAutoresizingMaskIntoConstraints = false
-            button.heightAnchor.constraint(equalToConstant: starSize.height).isActive = true
-            button.widthAnchor.constraint(equalToConstant: starSize.width).isActive = true
+            button.heightAnchor.constraint(equalToConstant: clockSize.height).isActive = true
+            button.widthAnchor.constraint(equalToConstant: clockSize.width).isActive = true
             
             // Setup the button action
             button.addTarget(self, action: #selector(RatingControl.ratingButtonTapped(button:)), for: .touchUpInside)
@@ -86,16 +100,15 @@ import UIKit
             addArrangedSubview(button)
             
             // Add the new button to the rating button array
-            ratingButtons.append(button)
-            
-            updateButtonSelectionStates()
+            ratingButtons.append(button)          
         }
+        updateButtonSelectionStates()
     }
     
     private func updateButtonSelectionStates() {
         for (index, button) in ratingButtons.enumerated() {
             // If the index of a button is less than the rating, that button should be selected.
-            button.isSelected = index < rating
+            button.isSelected = index == rating
         }
     }
 }

@@ -33,7 +33,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <stackView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="a2d-Il-Abr" userLabel="Rating Control" customClass="RatingControl" customModule="HealthyApp" customModuleProvider="target">
-                                            <rect key="frame" x="116" y="40" width="252" height="44"/>
+                                            <rect key="frame" x="116" y="40" width="148" height="44"/>
                                         </stackView>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="OPg-7K-Fy1" userLabel="Photo Image View">
                                             <rect key="frame" x="13" y="8" width="81" height="81"/>
@@ -90,10 +90,9 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="OT1-MJ-xYX">
                                 <rect key="frame" x="10" y="160" width="394" height="490.5"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter recipe name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Fgj-C4-VZZ">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" borderStyle="roundedRect" placeholder="Enter recipe name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Fgj-C4-VZZ">
                                         <rect key="frame" x="0.0" y="0.0" width="394" height="30"/>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <attributedString key="attributedText"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                                     </textField>
                                     <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="320" placeholderIntrinsicHeight="320" image="defaultPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="zc4-MJ-JMJ">
@@ -107,13 +106,13 @@
                                         </connections>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="SoS-Qa-Q0T" customClass="RatingControl" customModule="HealthyApp" customModuleProvider="target">
-                                        <rect key="frame" x="70" y="446" width="254" height="44.5"/>
+                                        <rect key="frame" x="122.5" y="446" width="149" height="44.5"/>
                                         <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="size" keyPath="starSize">
+                                            <userDefinedRuntimeAttribute type="size" keyPath="clockSize">
                                                 <size key="value" width="44.399999999999999" height="44.399999999999999"/>
                                             </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="starCount">
-                                                <integer key="value" value="5"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="clockCount">
+                                                <integer key="value" value="3"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </stackView>
@@ -162,7 +161,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1917" y="75"/>
+            <point key="canvasLocation" x="1915.9420289855075" y="75"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="siN-6i-kGG">
