@@ -8,7 +8,8 @@ class Recipe: NSObject, NSCoding {
     var name: String
     var photo: UIImage?
     var rating: Int
-    var instruction: String
+    var instruction: String?
+    var isFavorite: Bool
     
     //MARK: Archiving Paths
     
@@ -21,18 +22,15 @@ class Recipe: NSObject, NSCoding {
         static let name = "name"
         static let photo = "photo"
         static let rating = "rating"
-        static let instruction = "rating"
+        static let instruction = "instruction"
+        static let isFavorite = "isFavorite"
     }
     
     //MARK: Initialization
     
-    init?(name: String, photo: UIImage?, rating: Int, instruction: String) {
+    init?(name: String, photo: UIImage?, rating: Int, instruction: String, isFavorite: Bool) {
         // The name must not be empty
         guard !name.isEmpty else {
-            return nil
-        }
-        
-        guard !instruction.isEmpty else {
             return nil
         }
         
@@ -46,6 +44,7 @@ class Recipe: NSObject, NSCoding {
         self.photo = photo
         self.rating = rating
         self.instruction = instruction
+        self.isFavorite = isFavorite;
     }
     
     //MARK: NSCoding
@@ -55,6 +54,7 @@ class Recipe: NSObject, NSCoding {
         aCoder.encode(photo, forKey: PropertyKey.photo)
         aCoder.encode(rating, forKey: PropertyKey.rating)
         aCoder.encode(instruction, forKey: PropertyKey.instruction)
+        aCoder.encode(isFavorite, forKey: PropertyKey.isFavorite)
     }
     
     required convenience init?(coder aDecoder: NSCoder) {
@@ -68,12 +68,18 @@ class Recipe: NSObject, NSCoding {
             os_log("Unable to decode the instruction for a Recipe object.", log: OSLog.default, type: .debug)
             return nil
         }
+        
+        guard let isFavorite = aDecoder.decodeObject(forKey: PropertyKey.isFavorite) as? Bool else {
+            os_log("Unable to decode the isFavorite for a Recipe object.", log: OSLog.default, type: .debug)
+            return nil
+        }
 
         let photo = aDecoder.decodeObject(forKey: PropertyKey.photo) as? UIImage
         let rating = aDecoder.decodeInteger(forKey: PropertyKey.rating)
         
+        
         // Must call designated initializer.
-        self.init(name: name, photo: photo, rating: rating, instruction: instruction)
+        self.init(name: name, photo: photo, rating: rating, instruction: instruction, isFavorite: isFavorite)
     }
     
 }

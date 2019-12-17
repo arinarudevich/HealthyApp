@@ -16,6 +16,7 @@ class RecipeViewController: UIViewController, UITextFieldDelegate,
     @IBOutlet weak var ratingControl: RatingControl!
     @IBOutlet weak var saveButton: UIBarButtonItem!
     @IBOutlet weak var descriptionField: UITextView!
+    @IBOutlet weak var favoriteButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,13 +42,12 @@ class RecipeViewController: UIViewController, UITextFieldDelegate,
             photoImageView.image = recipe.photo
             ratingControl.rating = recipe.rating
             descriptionField.text = recipe.instruction
+            favoriteButton.isSelected = recipe.isFavorite
         } else {
             //Add placeholder to instruction field if it's empty
             descriptionField.placeholder = "Add instructions..."
         }
-        
-
-        
+   
         // Enable the Save button only if the text field has a valid name.
         updateSaveButtonState()
     }
@@ -95,7 +95,7 @@ class RecipeViewController: UIViewController, UITextFieldDelegate,
     
     @IBAction func cancel(_ sender: UIBarButtonItem) {
         // Depending on style of presentation (modal or push presentation), this view controller needs to be dismissed in two different ways.
-        let isPresentingInAddRecipeMode = presentingViewController is UINavigationController
+        let isPresentingInAddRecipeMode = presentingViewController is UITabBarController
         
         if isPresentingInAddRecipeMode {
             dismiss(animated: true, completion: nil)
@@ -108,6 +108,10 @@ class RecipeViewController: UIViewController, UITextFieldDelegate,
         }
     }
     
+    @IBAction func toggleFavorite(_ sender: UIButton) {
+        sender.isSelected = !sender.isSelected
+        recipe?.isFavorite = sender.isSelected;
+    }
     
     // This method lets you configure a view controller before it's presented.
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -123,8 +127,9 @@ class RecipeViewController: UIViewController, UITextFieldDelegate,
         let photo = photoImageView.image
         let rating = ratingControl.rating
         let instruction = descriptionField.text ?? ""
+        let isFavorite = favoriteButton.isSelected;
         
-        recipe = Recipe(name: name, photo: photo, rating: rating, instruction: instruction)
+        recipe = Recipe(name: name, photo: photo, rating: rating, instruction: instruction, isFavorite: isFavorite)
     }
 
     //MARK: Actions
@@ -132,6 +137,7 @@ class RecipeViewController: UIViewController, UITextFieldDelegate,
     @IBAction func selectImageFromLibrary(_ sender: UITapGestureRecognizer) {
         // Hide the keyboard.
         nameTextField.resignFirstResponder()
+        descriptionField.resignFirstResponder()
         
         // UIImagePickerController is a view controller that lets a user pick media from their photo library.
         let imagePickerController = UIImagePickerController()
@@ -148,8 +154,7 @@ class RecipeViewController: UIViewController, UITextFieldDelegate,
     private func updateSaveButtonState() {
         // Disable the Save button if the text field is empty.
         let text = nameTextField.text ?? ""
-        let instruction = descriptionField.text ?? ""
-        saveButton.isEnabled = !text.isEmpty && !instruction.isEmpty
+        saveButton.isEnabled = !text.isEmpty
     }
 }
 

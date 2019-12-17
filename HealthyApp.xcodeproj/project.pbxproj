@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		797BEE3939C73E0DC0AE4C73 /* Pods_HealthyApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1B3C559AA78A41D63481C5E /* Pods_HealthyApp.framework */; };
+		E121BD2323A7806F00B1B916 /* HealtyAppModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E121BD2123A7806F00B1B916 /* HealtyAppModel.xcdatamodeld */; };
+		E121BD2523A7873500B1B916 /* HealthyAppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E121BD2423A7873500B1B916 /* HealthyAppModel.swift */; };
+		E161D77F2397E30200D5F534 /* FavoritesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E161D77E2397E30100D5F534 /* FavoritesTableViewController.swift */; };
 		E19238B32392895100EBEC8C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19238B22392895100EBEC8C /* AppDelegate.swift */; };
 		E19238B52392895100EBEC8C /* RecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19238B42392895100EBEC8C /* RecipeViewController.swift */; };
 		E19238B82392895100EBEC8C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E19238B62392895100EBEC8C /* Main.storyboard */; };
@@ -26,6 +29,9 @@
 		0E38B43B7EF9A97FDC352CFF /* Pods-HealthyApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HealthyApp.release.xcconfig"; path = "Target Support Files/Pods-HealthyApp/Pods-HealthyApp.release.xcconfig"; sourceTree = "<group>"; };
 		D1B3C559AA78A41D63481C5E /* Pods_HealthyApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HealthyApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE288D4CF5F56AC7DA7C3EDD /* Pods-HealthyApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HealthyApp.debug.xcconfig"; path = "Target Support Files/Pods-HealthyApp/Pods-HealthyApp.debug.xcconfig"; sourceTree = "<group>"; };
+		E121BD2223A7806F00B1B916 /* HealtyAppModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = HealtyAppModel.xcdatamodel; sourceTree = "<group>"; };
+		E121BD2423A7873500B1B916 /* HealthyAppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthyAppModel.swift; sourceTree = "<group>"; };
+		E161D77E2397E30100D5F534 /* FavoritesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesTableViewController.swift; sourceTree = "<group>"; };
 		E19238AF2392895100EBEC8C /* HealthyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HealthyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E19238B22392895100EBEC8C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E19238B42392895100EBEC8C /* RecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeViewController.swift; sourceTree = "<group>"; };
@@ -85,13 +91,16 @@
 			isa = PBXGroup;
 			children = (
 				E19238B22392895100EBEC8C /* AppDelegate.swift */,
+				E121BD2423A7873500B1B916 /* HealthyAppModel.swift */,
 				E19238B42392895100EBEC8C /* RecipeViewController.swift */,
 				E19238CC2392C34F00EBEC8C /* RecipeTableViewController.swift */,
+				E161D77E2397E30100D5F534 /* FavoritesTableViewController.swift */,
 				E19238C82392BC7A00EBEC8C /* RecipeTableViewCell.swift */,
 				E19238C62392B97900EBEC8C /* Recipe.swift */,
 				E19238C42392A86100EBEC8C /* RatingControl.swift */,
 				E19238B62392895100EBEC8C /* Main.storyboard */,
 				E19238B92392895200EBEC8C /* Assets.xcassets */,
+				E121BD2123A7806F00B1B916 /* HealtyAppModel.xcdatamodeld */,
 				E1B8E3FE2396863400492F7B /* Extentions */,
 				E19238BB2392895200EBEC8C /* LaunchScreen.storyboard */,
 				E19238BE2392895200EBEC8C /* Info.plist */,
@@ -235,11 +244,14 @@
 				E1B8E4002396866800492F7B /* UIView+Shadow.swift in Sources */,
 				E19238B52392895100EBEC8C /* RecipeViewController.swift in Sources */,
 				E19238C92392BC7A00EBEC8C /* RecipeTableViewCell.swift in Sources */,
+				E161D77F2397E30200D5F534 /* FavoritesTableViewController.swift in Sources */,
 				E19238C52392A86100EBEC8C /* RatingControl.swift in Sources */,
 				E1E34F9A23952CAF00C27865 /* CAGradientLayer+Custom.swift in Sources */,
 				E19238CD2392C34F00EBEC8C /* RecipeTableViewController.swift in Sources */,
 				E19238B32392895100EBEC8C /* AppDelegate.swift in Sources */,
 				E19238C72392B97900EBEC8C /* Recipe.swift in Sources */,
+				E121BD2523A7873500B1B916 /* HealthyAppModel.swift in Sources */,
+				E121BD2323A7806F00B1B916 /* HealtyAppModel.xcdatamodeld in Sources */,
 				E1CC02662396C574005B80EA /* UITextView+Placeholder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -440,6 +452,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		E121BD2123A7806F00B1B916 /* HealtyAppModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				E121BD2223A7806F00B1B916 /* HealtyAppModel.xcdatamodel */,
+			);
+			currentVersion = E121BD2223A7806F00B1B916 /* HealtyAppModel.xcdatamodel */;
+			path = HealtyAppModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = E19238A72392895100EBEC8C /* Project object */;
 }

@@ -1,90 +1,76 @@
-//
-//  FavoritesTableViewController.swift
-//  HealthyApp
-//
-//  Created by Aryna Rudzevich on 12/4/19.
-//  Copyright © 2019 Aryna Rudzevich. All rights reserved.
-//
-
 import UIKit
+import os.log
+
 
 class FavoritesTableViewController: UITableViewController {
+    var recipes = [Recipe]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
+         self.clearsSelectionOnViewWillAppear = false
 
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+        guard
+            let navigationController = navigationController,
+            let flareGradientImage = CAGradientLayer.primaryGradient(on: navigationController.navigationBar)
+            else {
+                print("Error creating gradient color!")
+                return
+        }
+        
+        navigationController.navigationBar.barTintColor = UIColor(patternImage: flareGradientImage)
+        
+        recipes = loadRecipes()!.filter {$0.isFavorite}
+
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return recipes.count
     }
 
-    /*
+   
+
+        
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+        
+        // Table view cells are reused and should be dequeued using a cell identifier.
+        let cellIdentifier = "RecipeTableViewCell"
+        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? RecipeTableViewCell  else {
+            fatalError("The dequeued cell is not an instance of RecipeTableViewCell.")
+        }
+        
+        // Fetches the appropriate recipe for the data source layout.
+        let recipe = recipes[indexPath.row]
+        
+        cell.nameLabel.text = recipe.name
+        cell.photoImageView.image = recipe.photo
+        cell.ratingControl.rating = recipe.rating
+        cell.instructionTextView.text = recipe.instruction
+        
+        cell.photoImageView.layer.cornerRadius = 20
+        cell.photoImageView.clipsToBounds = true
+        
         return cell
     }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    
+    
+    //MARK: Private Methods
+    
+    private func saveRecipes() {
+        HealthyAppModel.saveRecipes(recipes: recipes)
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+    
+    private func loadRecipes() -> [Recipe]? {
+        return HealthyAppModel.retrieveSavedRecipes()
     }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    
 }
