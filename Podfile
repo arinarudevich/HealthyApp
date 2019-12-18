@@ -6,5 +6,8 @@ target 'HealthyApp' do
   use_frameworks!
 
   # Pods for HealthyApp
-pod 'MaterialComponents/TextFields'
+pod 'Firebase/Core'
+pod 'Firebase/Firestore'
+pod 'FirebaseFirestoreSwift'
+
 end

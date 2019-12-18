@@ -20,6 +20,7 @@
 		E19238C72392B97900EBEC8C /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19238C62392B97900EBEC8C /* Recipe.swift */; };
 		E19238C92392BC7A00EBEC8C /* RecipeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19238C82392BC7A00EBEC8C /* RecipeTableViewCell.swift */; };
 		E19238CD2392C34F00EBEC8C /* RecipeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19238CC2392C34F00EBEC8C /* RecipeTableViewController.swift */; };
+		E195FE0123AA5A390044307F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E195FE0023AA5A390044307F /* GoogleService-Info.plist */; };
 		E1B8E4002396866800492F7B /* UIView+Shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B8E3FF2396866800492F7B /* UIView+Shadow.swift */; };
 		E1CC02662396C574005B80EA /* UITextView+Placeholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CC02642396C3F4005B80EA /* UITextView+Placeholder.swift */; };
 		E1E34F9A23952CAF00C27865 /* CAGradientLayer+Custom.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E34F9923952CAF00C27865 /* CAGradientLayer+Custom.swift */; };
@@ -43,6 +44,7 @@
 		E19238C62392B97900EBEC8C /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		E19238C82392BC7A00EBEC8C /* RecipeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeTableViewCell.swift; sourceTree = "<group>"; };
 		E19238CC2392C34F00EBEC8C /* RecipeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeTableViewController.swift; sourceTree = "<group>"; };
+		E195FE0023AA5A390044307F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E1B8E3FF2396866800492F7B /* UIView+Shadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Shadow.swift"; sourceTree = "<group>"; };
 		E1CC02642396C3F4005B80EA /* UITextView+Placeholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+Placeholder.swift"; sourceTree = "<group>"; };
 		E1E34F9923952CAF00C27865 /* CAGradientLayer+Custom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CAGradientLayer+Custom.swift"; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 				E121BD2123A7806F00B1B916 /* HealtyAppModel.xcdatamodeld */,
 				E1B8E3FE2396863400492F7B /* Extentions */,
 				E19238BB2392895200EBEC8C /* LaunchScreen.storyboard */,
+				E195FE0023AA5A390044307F /* GoogleService-Info.plist */,
 				E19238BE2392895200EBEC8C /* Info.plist */,
 			);
 			path = HealthyApp;
@@ -187,6 +190,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E19238BD2392895200EBEC8C /* LaunchScreen.storyboard in Resources */,
+				E195FE0123AA5A390044307F /* GoogleService-Info.plist in Resources */,
 				E19238BA2392895200EBEC8C /* Assets.xcassets in Resources */,
 				E19238B82392895100EBEC8C /* Main.storyboard in Resources */,
 			);

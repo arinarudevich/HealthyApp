@@ -1,11 +1,14 @@
 import UIKit
 import os.log
 import CoreData
+import FirebaseCore
+import FirebaseFirestore
 
 class RecipeTableViewController: UITableViewController {
     //MARK: Properties
     
     var recipes = [Recipe]()
+    var db: Firestore!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +27,13 @@ class RecipeTableViewController: UITableViewController {
         }
         
         navigationController.navigationBar.barTintColor = UIColor(patternImage: flareGradientImage)
+        
+        let settings = FirestoreSettings()
+        
+        Firestore.firestore().settings = settings
+        // [END setup]
+        db = Firestore.firestore()
+        
         
 //        loadSampleRecipes()
        // Load any saved recipes, otherwise load sample data.
@@ -164,6 +174,7 @@ class RecipeTableViewController: UITableViewController {
                 recipes.append(recipe)
                 tableView.insertRows(at: [newIndexPath], with: .automatic) //animates the addition of a new row
                 saveRecipes()
+                addDataToFireBase(recipe: recipe)
             }
             
         }
@@ -198,5 +209,22 @@ class RecipeTableViewController: UITableViewController {
     private func loadRecipes() -> [Recipe]? {
         return HealthyAppModel.retrieveSavedRecipes()
     }
+    
+    func addDataToFireBase(recipe: Recipe) {
+        var ref: DocumentReference? = nil
+        ref = db.collection("recipes").addDocument(data: [
+            "name": recipe.name,
+            "instruction": recipe.instruction,
+            "rating": recipe.rating,
+            "isFavorite": recipe.isFavorite
+        ]) { err in
+            if let err = err {
+                print("Error adding document: \(err)")
+            } else {
+                print("Document added with ID: \(ref!.documentID)")
+            }
+        }
+    }
+
     
 }
